@@ -11,11 +11,12 @@ public class Sorveteria {
 	private String nome = "Gelo Bom";
 	private ArrayList<Sorvete> sorvetes = new ArrayList<Sorvete>();
 	
+	
+	Cliente cl = new Cliente();
+	
 	Scanner entrada = new Scanner(System.in);
 	
 	public void exibeMensagem() {
-		Cliente cl = new Cliente();
-		
 		System.out.print("Digite seu nome: ");
 		cl.setNome(entrada.next());
 		
@@ -71,22 +72,25 @@ public class Sorveteria {
 			System.out.println();
 			
 			if (opcao == 1) {
-				System.out.println("Digite o sabor desejado: ");
+				System.out.print("Digite o sabor desejado: ");
 				opcao = entrada.nextInt();
 				
 				if (opcao == 1) {
 					Sorvete svm = new Sorvete("Massa", "Morango", 1.0, 12.00f);
 					this.getSorvetes().add(svm);
+					System.out.println("Sorvete colocado na sexta!");
 					veCardapio();
 					
 				} else if (opcao == 2) {
 					Sorvete svm = new Sorvete("Massa", "Chocolate", 1.0, 14.00f);
 					this.getSorvetes().add(svm);
+					System.out.println("Sorvete colocado na sexta!");
 					veCardapio();
 					
 				} else if (opcao == 3) {
 					Sorvete svm = new Sorvete("Massa", "Uva", 1.0, 13.00f);
 					this.getSorvetes().add(svm);
+					System.out.println("Sorvete colocado na sexta!");
 					veCardapio();
 					
 				} else {
@@ -108,16 +112,46 @@ public class Sorveteria {
 	}
 	
 	public void compraSorvete() {
-		System.out.println("----------|Extrato|----------");
-		System.out.println("Compra(s) efetuada(s).");
-		for (int i = 0; i < this.getSorvetes().size(); i++) {
-			System.out.println("Tipo: " + this.getSorvetes().get(i).getTipo());
-			System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
-			System.out.println("Quantidade: " + this.getSorvetes().get(i).getLitro());
-			System.out.println("Preço: " + this.getSorvetes().get(i).getPreco());
-			System.out.println();
+		if (this.getSorvetes().size() > -1) {
+			
+			System.out.println("----------|Extrato|----------");
+			System.out.println("Deseja CPF na nota?");
+			System.out.println("1 - Sim.");
+			System.out.println("2 - Não.");
+			System.out.print("Digite sua opção: ");
+			int opcao = entrada.nextInt();
+			
+			if (opcao == 1) {
+				System.out.print("Digite seu CPF: ");
+				cl.setCpf(entrada.next());
+				
+				while (cl.getCpf().length() != 11) {
+					System.out.println("Digite somente 11 digitos, sem pontos e hífen!");
+					System.out.print("Digite seu CPF: ");
+					cl.setCpf(entrada.next());
+				}
+			}
+			
+			System.out.println("Opção 1 - Pagar com cartão.");
+			System.out.println("Opção 2 - Pagar com dinheiro.");
+			System.out.print("Digite sua opção: ");
+			opcao = entrada.nextInt();
+			
+			System.out.println("Compra(s) efetuada(s).");
+			for (int i = 0; i < this.getSorvetes().size(); i++) {
+				System.out.println("Tipo: " + this.getSorvetes().get(i).getTipo());
+				System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
+				System.out.println("Quantidade: " + this.getSorvetes().get(i).getLitro());
+				System.out.println("Preço: " + this.getSorvetes().get(i).getPreco());
+				System.out.println();
+			}
+			
+			System.out.println("-----------------------------");
+			
+		} else {
+			System.out.println("Coloque sorvetes na sexta para poder compra-los!");
+			exibeMenu();
 		}
-		System.out.println("-----------------------------");
 	}
 
 	public String getNome() {
