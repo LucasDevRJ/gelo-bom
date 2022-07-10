@@ -22,20 +22,29 @@ public class Sorveteria {
 	}
 	
 	public void exibeMenu() {
-		int opcao;
-		
 		System.out.println("Opção 1 - Ver cardápio.");
 		
 		System.out.println("Escolha a opção desejada: ");
-		int opcaoEscolhida = entrada.nextInt();
+		int opcao = entrada.nextInt();
 		
-		switch (opcaoEscolhida) {
+		switch (opcao) {
 			
 		case 1:
-			
+			veCardapio();
 		}
 	}
 	
+	public void veCardapio() {
+		System.out.println("Opção 1 - Sorvetes de Massa.");
+		int opcao = entrada.nextInt();
+		
+		switch (opcao) {
+		case 1:
+			
+		}
+		
+	}
+
 	public String getNome() {
 		return nome;
 	}
