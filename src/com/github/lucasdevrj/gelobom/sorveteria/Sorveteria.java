@@ -28,6 +28,7 @@ public class Sorveteria {
 		System.out.println("----------|MENU|----------");
 		
 		System.out.println("Opção 1 - Ver cardápio.");
+		System.out.println("Opção 2 - Comprar.");
 		
 		System.out.print("Escolha a opção desejada: ");
 		int opcao = entrada.nextInt();
@@ -38,14 +39,18 @@ public class Sorveteria {
 			
 		case 1:
 			veCardapio();
+		break;
+		
+		case 0:
+			finalizaPrograma();
 		}
 	}
-	
+
 	public void veCardapio() {
 		System.out.println("----------|CARDÁPIO|----------");
 		
 		System.out.println("Opção 1 - Sorvetes de Massa.");
-		System.out.println("Opção 2 - Sorvete Artesanal.");
+		System.out.println("Opção 2 - Picolé.");
 		
 		System.out.print("Digite a sua opção: ");
 		int opcao = entrada.nextInt();
@@ -57,19 +62,38 @@ public class Sorveteria {
 			System.out.println("2 - Chocolate");
 			System.out.println("3 - Uva");
 			
-			System.out.println("Deseja comprar ou não?\n1 - Sim.\n2 - Voltar.");
-			int escolha = entrada.nextInt();
+			System.out.println("Deseja adicionar na sexta ou não?\n1 - Sim.\n2 - Voltar.");
+			opcao = entrada.nextInt();
 			
-			if (escolha == 1) {
-				System.out.println("");
-			} else {
-				exibeMenu();
+			if (opcao == 1) {
+				System.out.println("Digite o sabor desejado: ");
+				opcao = entrada.nextInt();
+				
+				if (opcao == 1) {
+					Sorvete svm = new Sorvete("Massa", "Morango", 1.0, 12.00f);
+					this.getSorvetes().add(svm);
+					veCardapio();
+					
+				} else if (opcao == 2) {
+					
+				}
 			}
 			
 		}
 		System.out.println("------------------------------");
 		
 		exibeMenu();
+	}
+	
+	public void finalizaPrograma() {
+		System.out.println("Compra(s) efetuada(s).");
+		for (int i = 0; i < this.getSorvetes().size(); i++) {
+			System.out.println("Compra realizada com sucesso!");
+			System.out.println("Tipo: " + this.getSorvetes().get(i).getTipo());
+			System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
+			System.out.println("Quantidade: " + this.getSorvetes().get(i).getLitro());
+			System.out.println("Preço: " + this.getSorvetes().get(i).getPreco());
+		}
 	}
 
 	public String getNome() {
