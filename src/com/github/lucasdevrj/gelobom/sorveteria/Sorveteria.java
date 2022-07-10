@@ -33,7 +33,7 @@ public class Sorveteria {
 		System.out.print("Escolha a opção desejada: ");
 		int opcao = entrada.nextInt();
 		
-		System.out.println("---------------------------");
+		System.out.println("---------------------------\n");
 		
 		switch (opcao) {
 			
@@ -41,29 +41,34 @@ public class Sorveteria {
 			veCardapio();
 		break;
 		
-		case 0:
-			finalizaPrograma();
+		case 2:
+			compraSorvete();
 		}
 	}
 
 	public void veCardapio() {
 		System.out.println("----------|CARDÁPIO|----------");
 		
-		System.out.println("Opção 1 - Sorvetes de Massa.");
+		System.out.println("Opção 1 - Sorvetes de massa.");
 		System.out.println("Opção 2 - Picolé.");
+		System.out.println("Opção 3 - Voltar para o menu principal.\n");
 		
 		System.out.print("Digite a sua opção: ");
 		int opcao = entrada.nextInt();
 		
+		System.out.println();
+		
 		switch (opcao) {
 		case 1:
 			System.out.println("Sabores disponíveis:");
-			System.out.println("1 - Morango");
-			System.out.println("2 - Chocolate");
-			System.out.println("3 - Uva");
+			System.out.println("1 - Morango.");
+			System.out.println("2 - Chocolate.");
+			System.out.println("3 - Uva.\n");
 			
-			System.out.println("Deseja adicionar na sexta ou não?\n1 - Sim.\n2 - Voltar.");
+			System.out.print("Digite 1 para adicionar o sorvete na sexta ou 2 para voltar: ");
 			opcao = entrada.nextInt();
+			
+			System.out.println();
 			
 			if (opcao == 1) {
 				System.out.println("Digite o sabor desejado: ");
@@ -75,25 +80,44 @@ public class Sorveteria {
 					veCardapio();
 					
 				} else if (opcao == 2) {
+					Sorvete svm = new Sorvete("Massa", "Chocolate", 1.0, 14.00f);
+					this.getSorvetes().add(svm);
+					veCardapio();
 					
+				} else if (opcao == 3) {
+					Sorvete svm = new Sorvete("Massa", "Uva", 1.0, 13.00f);
+					this.getSorvetes().add(svm);
+					veCardapio();
+					
+				} else {
+					System.out.println("Opção inválida!");
+					veCardapio();
 				}
+				
+			} else if (opcao == 2){
+				veCardapio();
 			}
 			
+		case 3:
+			exibeMenu();
 		}
-		System.out.println("------------------------------");
+		
+		System.out.println("\n------------------------------\n");
 		
 		exibeMenu();
 	}
 	
-	public void finalizaPrograma() {
+	public void compraSorvete() {
+		System.out.println("----------|Extrato|----------");
 		System.out.println("Compra(s) efetuada(s).");
 		for (int i = 0; i < this.getSorvetes().size(); i++) {
-			System.out.println("Compra realizada com sucesso!");
 			System.out.println("Tipo: " + this.getSorvetes().get(i).getTipo());
 			System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
 			System.out.println("Quantidade: " + this.getSorvetes().get(i).getLitro());
 			System.out.println("Preço: " + this.getSorvetes().get(i).getPreco());
+			System.out.println();
 		}
+		System.out.println("-----------------------------");
 	}
 
 	public String getNome() {
