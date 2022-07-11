@@ -103,6 +103,45 @@ public class Sorveteria {
 				veCardapio();
 			}
 			
+		case 2:
+			System.out.println("Sabores disponíveis:");
+			System.out.println("1 - Manga.");
+			System.out.println("2 - Limão.");
+			System.out.println("3 - Cereja.\n");
+			
+			System.out.print("Digite 1 para adicionar o picolé na sexta ou 2 para voltar: ");
+			opcao = entrada.nextInt();
+			
+			System.out.println();
+			
+			if (opcao == 1) {
+				System.out.print("Digite o sabor desejado: ");
+				opcao = entrada.nextInt();
+				
+				if (opcao == 1) {
+					Sorvete svp = new Sorvete("Picolé", "Manga", 0.100, 4.00f);
+					this.getSorvetes().add(svp);
+					System.out.println("Picolé colocado na sexta!");
+					veCardapio();
+					
+				} else if (opcao == 2) {
+					Sorvete svp = new Sorvete("Picolé", "Limão", 0.100, 4.00f);
+					this.getSorvetes().add(svp);
+					System.out.println("Picolé colocado na sexta!");
+					veCardapio();
+					
+				} else if (opcao == 3) {
+					Sorvete svp = new Sorvete("Picolé", "Cereja", 0.100, 4.00f);
+					this.getSorvetes().add(svp);
+					System.out.println("Picolé colocado na sexta!");
+					veCardapio();
+					
+				} else {
+					System.out.println("Opção inválida!");
+					veCardapio();
+				}
+			}
+			
 		case 3:
 			exibeMenu();
 		}
