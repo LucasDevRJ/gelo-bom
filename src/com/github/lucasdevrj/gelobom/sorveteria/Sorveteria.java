@@ -27,7 +27,7 @@ public class Sorveteria {
 	}
 	
 	public void exibeMenu() {
-		System.out.println("----------|MENU|----------");
+		System.out.println("\n----------|MENU|----------");
 		
 		System.out.println("Opção 1 - Ver cardápio.");
 		System.out.println("Opção 2 - Comprar.");
@@ -162,7 +162,7 @@ public class Sorveteria {
 	}
 	
 	public void compraSorvete() {
-		if (this.getSorvetes().size() < -1) {
+		if (this.getSorvetes().size() > 0) {
 			
 			System.out.println("----------|Extrato|----------");
 			System.out.println("Deseja CPF na nota?");
@@ -192,14 +192,21 @@ public class Sorveteria {
 				float valor = entrada.nextFloat();
 				
 				if (this.getPrecoTotal() < valor) {
+					float valorDado = valor;
 					valor -= this.getPrecoTotal();
+					System.out.println("\nCompra(s) efetuada(s).");
+					
 					for (int i = 0; i < this.getSorvetes().size(); i++) {
 						System.out.println("Tipo: " + this.getSorvetes().get(i).getTipo());
 						System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
 						System.out.printf("Quantidade: %.3f", this.getSorvetes().get(i).getLitro());
 						System.out.printf("\nPreço: R$ %.2f", this.getSorvetes().get(i).getPreco());
-						System.out.printf("\nTroco: R$ ", valor);
 					}
+					
+					System.out.printf("\nValor dado: R$ %.2f", valorDado);
+					System.out.printf("\nTroco: R$ %.2f", valor);
+					System.out.println();
+					exibeMenu();
 				}
 			}
 			
@@ -217,7 +224,7 @@ public class Sorveteria {
 			System.out.println("\n-----------------------------");
 			
 		} else {
-			System.out.println("\nColoque sorvetes na sexta para poder compra-los!");
+			System.out.println("Coloque sorvetes na sexta para poder compra-los!\n");
 			exibeMenu();
 		}
 	}
