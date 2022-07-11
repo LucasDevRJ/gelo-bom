@@ -10,6 +10,7 @@ public class Sorveteria {
 	
 	private String nome = "Gelo Bom";
 	private ArrayList<Sorvete> sorvetes = new ArrayList<Sorvete>();
+	private float precoTotal;
 	
 	
 	Cliente cl = new Cliente();
@@ -160,5 +161,9 @@ public class Sorveteria {
 	
 	public ArrayList<Sorvete> getSorvetes() {
 		return sorvetes;
+	}
+	
+	public float getPrecoTotal() {
+		return precoTotal;
 	}
 }
