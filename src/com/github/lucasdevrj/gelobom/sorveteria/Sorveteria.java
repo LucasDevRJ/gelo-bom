@@ -199,23 +199,27 @@ public class Sorveteria {
 					for (int i = 0; i < this.getSorvetes().size(); i++) {
 						System.out.println("Tipo: " + this.getSorvetes().get(i).getTipo());
 						System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
-						System.out.printf("Quantidade: %.3f", this.getSorvetes().get(i).getLitro());
+						System.out.printf("Quantidade: %.3f", this.getSorvetes().get(i).getLitro(), " litro(s).");
 						System.out.printf("\nPreço: R$ %.2f", this.getSorvetes().get(i).getPreco());
 						
 					} 
 					
 					
-					if (!cl.getCpf().isEmpty()) {
+					if (cl.getCpf() != null && !cl.getCpf().isEmpty()) {
+						System.out.printf("\nPreço total: R$ %.2f", this.getPrecoTotal());
 						System.out.printf("\nValor dado: R$ %.2f", valorDado);
 						System.out.printf("\nTroco: R$ %.2f", valor);
 						System.out.println("\nCPF: " + cl.getCpf());
 						System.out.println();
 						this.getSorvetes().clear();
+						this.precoTotal = 0;
 						exibeMenu();
 					} else {
+						System.out.printf("\nPreço total: R$ %.2f", this.getPrecoTotal());
 						System.out.printf("\nValor dado: R$ %.2f", valorDado);
 						System.out.printf("\nTroco: R$ %.2f", valor);
 						System.out.println();
+						this.precoTotal = 0;
 						this.getSorvetes().clear();
 						exibeMenu();
 					}
@@ -229,12 +233,12 @@ public class Sorveteria {
 			for (int i = 0; i < this.getSorvetes().size(); i++) {
 				System.out.println("Tipo: " + this.getSorvetes().get(i).getTipo());
 				System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
-				System.out.printf("Quantidade: %.3f", this.getSorvetes().get(i).getLitro());
+				System.out.printf("Quantidade: %.3f", this.getSorvetes().get(i).getLitro(), " litro(s).");
 				System.out.printf("\nPreço: %.2f", this.getSorvetes().get(i).getPreco());
 				System.out.println();
 			}
 			
-			System.out.printf("Valor total: %.2f", this.getPrecoTotal());
+			System.out.printf("\nPreço total: R$ %.2f", this.getPrecoTotal());
 			
 			System.out.println("\n-----------------------------");
 			
