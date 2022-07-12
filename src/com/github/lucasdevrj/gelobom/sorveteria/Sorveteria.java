@@ -190,7 +190,7 @@ public class Sorveteria {
 				System.out.print("Digite o valor em dinheiro: ");
 				float valor = entrada.nextFloat();
 				
-				if (this.getPrecoTotal() < valor) {
+				if (this.getPrecoTotal() <= valor) {
 					float valorDado = valor;
 					valor -= this.getPrecoTotal();
 					System.out.println("\nCompra(s) efetuada(s).");
@@ -201,7 +201,9 @@ public class Sorveteria {
 						System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
 						System.out.printf("Quantidade: %.3f", this.getSorvetes().get(i).getLitro());
 						System.out.printf("\nPreço: R$ %.2f", this.getSorvetes().get(i).getPreco());
-					}
+						
+					} 
+					
 					
 					if (!cl.getCpf().isEmpty()) {
 						System.out.printf("\nValor dado: R$ %.2f", valorDado);
@@ -217,6 +219,9 @@ public class Sorveteria {
 						this.getSorvetes().clear();
 						exibeMenu();
 					}
+				} else {
+					System.out.println("\nValor dado é insuficiênte para realizar a(s) compra(s).\n");
+					exibeMenu();
 				}
 			}
 			
