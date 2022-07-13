@@ -49,7 +49,7 @@ public class Sorveteria {
 			break;
 			
 		default:
-			System.out.println("Opção inválida!");
+			System.out.println("Opção inválida!\n");
 			exibeMenu();
 		break;
 		}
@@ -79,40 +79,48 @@ public class Sorveteria {
 			
 			System.out.println();
 			
-			if (opcao == "1") {
-				System.out.print("Digite o sabor desejado: ");
-				opcao = entrada.next();
-				
-				System.out.println();
-				
-				if (opcao == "1") {
-					Sorvete svm = new Sorvete("Massa", "Morango", 1.0, 12.00f);
-					this.getSorvetes().add(svm);
-					System.out.println("\nSorvete colocado na sexta!");
-					this.precoTotal += svm.getPreco();
-					veCardapio();
+			switch (opcao) {
+				case "1":
+					System.out.print("Digite o sabor desejado: ");
+					opcao = entrada.next();
 					
-				} else if (opcao == "2") {
-					Sorvete svm = new Sorvete("Massa", "Chocolate", 1.0, 14.00f);
-					this.getSorvetes().add(svm);
-					System.out.println("\nSorvete colocado na sexta!");
-					this.precoTotal += svm.getPreco();
-					veCardapio();
+					System.out.println();
 					
-				} else if (opcao == "3") {
-					Sorvete svm = new Sorvete("Massa", "Uva", 1.0, 13.00f);
-					this.getSorvetes().add(svm);
-					System.out.println("\nSorvete colocado na sexta!");
-					this.precoTotal += svm.getPreco();
-					veCardapio();
-					
-				} else {
-					System.out.println("Opção inválida!");
-					veCardapio();
-				}
+					if (opcao == "1") {
+						Sorvete svm = new Sorvete("Massa", "Morango", 1.0, 12.00f);
+						this.getSorvetes().add(svm);
+						System.out.println("\nSorvete colocado na sexta!");
+						this.precoTotal += svm.getPreco();
+						veCardapio();
+						
+					} else if (opcao == "2") {
+						Sorvete svm = new Sorvete("Massa", "Chocolate", 1.0, 14.00f);
+						this.getSorvetes().add(svm);
+						System.out.println("\nSorvete colocado na sexta!");
+						this.precoTotal += svm.getPreco();
+						veCardapio();
+						
+					} else if (opcao == "3") {
+						Sorvete svm = new Sorvete("Massa", "Uva", 1.0, 13.00f);
+						this.getSorvetes().add(svm);
+						System.out.println("\nSorvete colocado na sexta!");
+						this.precoTotal += svm.getPreco();
+						veCardapio();
+						
+					} else {
+						System.out.println("Opção inválida!");
+						veCardapio();
+					}
+				break;
 				
-			} else if (opcao == "2"){
-				veCardapio();
+				case "2":
+					System.out.println("Voltando...");
+					exibeMenu();
+				break;
+				
+				default:
+					System.out.println("Opção inválida!\n");
+					veCardapio();
 			}
 			
 		case "2":
@@ -160,6 +168,12 @@ public class Sorveteria {
 			}
 			
 		case "3":
+			System.out.println("Voltando...");
+			exibeMenu();
+		break;
+		
+		default:
+			System.out.println("Opção inválida!\n");
 			exibeMenu();
 		}
 		
@@ -175,9 +189,9 @@ public class Sorveteria {
 			System.out.println("1 - Sim.");
 			System.out.println("2 - Não.");
 			System.out.print("Digite sua opção: ");
-			int opcao = entrada.nextInt();
+			String opcao = entrada.next();
 			
-			if (opcao == 1) {
+			if (opcao == "1") {
 				System.out.print("Digite seu CPF: ");
 				cl.setCpf(entrada.next());
 				
@@ -191,9 +205,9 @@ public class Sorveteria {
 			System.out.println("Opção 1 - Pagar com cartão.");
 			System.out.println("Opção 2 - Pagar com dinheiro.");
 			System.out.print("Digite sua opção: ");
-			opcao = entrada.nextInt();
+			opcao = entrada.next();
 			
-			if (opcao == 2) {
+			if (opcao == "2") {
 				System.out.print("Digite o valor em dinheiro: ");
 				float valor = entrada.nextFloat();
 				
