@@ -1,6 +1,7 @@
 package com.github.lucasdevrj.gelobom.sorveteria;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.github.lucasdevrj.gelobom.cliente.Cliente;
@@ -33,18 +34,25 @@ public class Sorveteria {
 		System.out.println("Opção 2 - Comprar.");
 		
 		System.out.print("Escolha a opção desejada: ");
-		int opcao = entrada.nextInt();
+		
+		String opcao = entrada.next();
 		
 		System.out.println("---------------------------\n");
 		
 		switch (opcao) {
 			
-		case 1:
+		case "1":
 			veCardapio();
 		break;
 		
-		case 2:
+		case "2":
 			compraSorvete();
+			break;
+			
+		default:
+			System.out.println("Opção inválida!");
+			exibeMenu();
+		break;
 		}
 	}
 
