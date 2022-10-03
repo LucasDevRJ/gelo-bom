@@ -3,7 +3,7 @@
 <h1 align="center">Gelo Bom</h1>
 
 ## Sobre
-Sistema interativo de uma sorveteria feito em Java. Nele podemos escolher e adicionar vários sorvetes, de mais de um tipo, em um carrinho e assim poderemos comprar nossas delicías geladas.
+Sistema interativo de uma sorveteria feito em Java. Nele o usuário pode comprar tanto sorvete de massa e/ou picolé. Adicionando-os no carrinho de compras, podendo escolher se quer pagar no cartão ou dinheiro, como também pode solicitar CPF na nota.
 
 ![geloBom](https://user-images.githubusercontent.com/95040236/193662766-9f4ab669-265d-4487-909f-17ec51e24be2.gif)
 
