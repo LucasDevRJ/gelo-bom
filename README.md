@@ -5,6 +5,8 @@
 ## Sobre
 Sistema interativo de uma sorveteria feito em Java. Nele podemos escolher e adicionar vários sorvetes, de mais de um tipo, em um carrinho e assim poderemos comprar nossas delicías geladas.
 
+![geloBom](https://user-images.githubusercontent.com/95040236/193662766-9f4ab669-265d-4487-909f-17ec51e24be2.gif)
+
 ![Projeto Autoral](https://img.shields.io/badge/Autoral-Sim-success)
 ![Desenvolvedor LucasDevRJ](https://img.shields.io/badge/Desenvolvedor-LucasDevRJ-success)
 ![Nome Gelo Bom](https://img.shields.io/badge/Nome-GeloBom-success)
