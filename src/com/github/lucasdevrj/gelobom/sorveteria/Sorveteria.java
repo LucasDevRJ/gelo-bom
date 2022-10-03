@@ -216,7 +216,7 @@ public class Sorveteria {
 							System.out.printf("Quantidade: %.3f mililitro(s).", this.getSorvetes().get(i).getLitro());
 						}
 						System.out.printf("\nPreço: R$ %.2f", this.getSorvetes().get(i).getPreco());
-						
+						System.out.println();
 					} 
 					
 					
@@ -242,26 +242,26 @@ public class Sorveteria {
 					System.out.println("\nValor dado é insuficiênte para realizar a(s) compra(s).\n");
 					exibeMenu();
 				}
-			}
-			
-			System.out.println("\nCompra(s) efetuada(s).");
-			for (int i = 0; i < this.getSorvetes().size(); i++) {
-				System.out.println("Tipo: " + this.getSorvetes().get(i).getTipo());
-				System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
-				if (sorvetes.get(i).getLitro() >= 1.00) {
-					System.out.printf("Quantidade: %.3f litro(s).", this.getSorvetes().get(i).getLitro());
-				} else {
-					System.out.printf("Quantidade: %.3f mililitro(s).", this.getSorvetes().get(i).getLitro());
+			} else if (opcao == 1) {
+				
+				System.out.println("\nCompra(s) efetuada(s).");
+				for (int i = 0; i < this.getSorvetes().size(); i++) {
+					System.out.println("Tipo: " + this.getSorvetes().get(i).getTipo());
+					System.out.println("Sabor: " + this.getSorvetes().get(i).getSabor());
+					if (sorvetes.get(i).getLitro() >= 1.00) {
+						System.out.printf("Quantidade: %.3f litro(s).", this.getSorvetes().get(i).getLitro());
+					} else {
+						System.out.printf("Quantidade: %.3f mililitro(s).", this.getSorvetes().get(i).getLitro());
+					}
+					System.out.printf("\nPreço: %.2f", this.getSorvetes().get(i).getPreco());
+					System.out.println();
 				}
-				System.out.printf("\nPreço: %.2f", this.getSorvetes().get(i).getPreco());
-				System.out.println();
+				
+				System.out.printf("\nPreço total: R$ %.2f", this.getPrecoTotal());
+				
+				System.out.println("\n-----------------------------");
+				exibeMenu();
 			}
-			
-			System.out.printf("\nPreço total: R$ %.2f", this.getPrecoTotal());
-			
-			System.out.println("\n-----------------------------");
-			exibeMenu();
-			
 		} else {
 			System.out.println("Coloque sorvetes na sexta para poder compra-los!\n");
 			exibeMenu();
